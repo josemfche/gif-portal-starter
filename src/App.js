@@ -127,7 +127,7 @@ const App = () => {
       console.log('Fetching GIF list...');
       getGifList()
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [walletAddress]);
 
   const connectWallet = async () => {
