@@ -5,6 +5,7 @@ import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
 import {
   Program, Provider, web3
 } from '@project-serum/anchor';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import kp from './keypair.json'
 
 import idl from './idl.json';
@@ -229,11 +230,13 @@ const App = () => {
           <div className="gif-grid">
             {/* Map through gifList instead of TEST_GIFS */}
             {gifList.map((gif) => (
-              <div className="gif-item" key={gif}>
+              <div className="gif-item d-flex flex-column flex-md-row my-1" key={gif}>
                 <img src={gif.gifLink} alt={gif.gifLink} />
-                <h4>User Address: {gif.userAddress.toString()}</h4>
-                <h4>Votes: {gif.upvotes}</h4>
-                <button onClick={() => upvote(gif.id)}>Vote</button>
+                <div className='mx-3 d-flex flex-column align-items-start'>
+                  <p className='text-white'><strong>User Address:</strong> {gif.userAddress.toString()}</p>
+                  <p className='text-white' ><strong>Votes:</strong> {gif.upvotes}</p>
+                  <button className='btn btn-primary' onClick={() => upvote(gif.id)}>Vote</button>
+                </div>
               </div>
             ))}
           </div>
