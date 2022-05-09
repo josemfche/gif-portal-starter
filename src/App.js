@@ -115,7 +115,7 @@ const App = () => {
 
       console.log("Got the account", account)
       console.log("Got the gifs", account.gifList)
-      setGifList(account.gifList)
+      setGifList(account.gifList.reverse())
 
     } catch (error) {
       console.log("Error in getGifList: ", error)
@@ -231,7 +231,7 @@ const App = () => {
             {/* Map through gifList instead of TEST_GIFS */}
             {gifList.map((gif) => (
               <div className="gif-item d-flex flex-column flex-md-row my-1" key={gif}>
-                <img src={gif.gifLink} alt={gif.gifLink} />
+                <img width={250} src={gif.gifLink} alt={gif.gifLink} />
                 <div className='mx-3 d-flex flex-column align-items-start'>
                   <p className='text-white'><strong>User Address:</strong> {gif.userAddress.toString()}</p>
                   <p className='text-white' ><strong>Votes:</strong> {gif.upvotes}</p>
